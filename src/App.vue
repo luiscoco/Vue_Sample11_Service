@@ -5,20 +5,13 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { ref } from "vue";
 import CounterService from "./CounterService";
 
-export default defineComponent({
-  data() {
-    return {
-      counter: CounterService.counter,
-    };
-  },
-  methods: {
-    increment() {
-      CounterService.increment();
-    },
-  },
-});
+const counter = ref(CounterService.counter);
+
+function increment() {
+  CounterService.increment();
+}
 </script>
